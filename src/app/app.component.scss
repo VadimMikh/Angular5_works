@@ -1,0 +1,10 @@
+.menu {
+  margin-bottom: 25px;
+  text-align: left;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+  padding: 5px 10px;
+  .active {
+    background-color: #dfdfdf;
+  }
+}

@@ -1,0 +1,28 @@
+<div class="form-group">
+    <select class="form-control" name="category" id="cat" [(ngModel)]="category">
+        <option value="1">Option 1</option>
+        <option value="2">Option 2</option>
+        <option value="3">Option 3</option>
+    </select>
+</div>
+<table class="table table-striped" *ngIf="products">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody [ngSwitch]="category">
+    <ng-template ngFor let-product [ngForOf]="productsToShow">
+        <tr [style.background]="product.price > 500 ? '#f44336' : ''"  *ngSwitchCase="product.category">
+            <td>{{product.id}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.price}}</td>
+            <td width="100"><button class="btn btn-danger" (click)="delete(product.id)">Del</button></td>
+        </tr>
+    </ng-template>
+    </tbody>
+</table>
+<app-add-item (addItemHandle)="addItem($event)"></app-add-item>
