@@ -1,5 +1,5 @@
 import {Component, Input, Output, EventEmitter, OnInit} from '@angular/core';
-import {MainService} from './main.service';
+import {MainService} from '../main.service';
 
 @Component ({
     selector: 'app-my-table',

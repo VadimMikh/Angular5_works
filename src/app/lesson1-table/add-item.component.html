@@ -1,4 +1,4 @@
-<input type="text" [(ngModel)]="newName">
-<input type="number" [(ngModel)]="newPrice">
-<input type="number" [(ngModel)]="newCategory">
+<input type="text" [(ngModel)]="newName" placeholder="Name">
+<input type="number" [(ngModel)]="newPrice" placeholder="Price">
+<input type="number" [(ngModel)]="newCategory" placeholder="Category" min="1" max="3">
 <button (click)="addItem()">Add</button>

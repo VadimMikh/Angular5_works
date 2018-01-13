@@ -16,6 +16,10 @@ export class AddItemComponent implements OnInit {
     addItemHandle = new EventEmitter<object>();
 
     addItem() {
+        if (this.newCategory > 3 || this.newCategory < 1) {
+            alert('Enter category between 1 - 3');
+            return;
+        }
         const newItem = {
             id: 0,
             name: this.newName,

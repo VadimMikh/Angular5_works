@@ -4,13 +4,16 @@ import { MatButtonModule, MatTableModule } from '@angular/material';
 
 
 import { AppComponent } from './app.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {RouterModule} from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
 import { Lesson1TableComponent } from './lesson1-table/lesson1-table.component';
-import {MyTableComponent} from './lesson1-table/my-table.component';
-import {FormsModule} from '@angular/forms';
-import {AddItemComponent} from './lesson1-table/add-item.component';
-import {MainService} from './lesson1-table/main.service';
+import { MyTableComponent } from './lesson1-table/my-table.component';
+import { FormsModule } from '@angular/forms';
+import { AddItemComponent } from './lesson1-table/add-item.component';
+import { MainService } from './main.service';
+import { HomeComponent } from './home/home.component';
+import { ItemInnerComponent } from './item-inner/item-inner.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 @NgModule({
@@ -18,14 +21,28 @@ import {MainService} from './lesson1-table/main.service';
     AppComponent,
     Lesson1TableComponent,
     AddItemComponent,
-    MyTableComponent
+    MyTableComponent,
+    HomeComponent,
+    ItemInnerComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: 'lesson1', component: Lesson1TableComponent },
-      { path: '', redirectTo: 'lesson1', pathMatch: 'full' }
+      { path: 'products', component: Lesson1TableComponent },
+      // { path: 'product/:id', component: ItemInnerComponent },
+      { path: 'admin', component: AdminComponent },
+      { path: 'home',
+        component: HomeComponent,
+        children: [
+          {
+            path: 'product/:id',
+            component: ItemInnerComponent
+          }
+        ]
+      },
+      { path: '', redirectTo: 'home', pathMatch: 'full' }
     ]),
     BrowserAnimationsModule,
     MatButtonModule,

@@ -27,6 +27,11 @@ export class MainService {
     addItem(item) {
         item.id = new Date().getTime();
         this.products.push(item);
+        console.log(this.products);
         return this.products;
+    }
+
+    getItem(id) {
+        return this.products.filter(item => item.id === id);
     }
 }
