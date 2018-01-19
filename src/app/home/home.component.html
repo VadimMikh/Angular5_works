@@ -1,7 +1,7 @@
 <h1>Products application</h1>
 <ul class="main-product-list">
-  <li *ngFor="let product of productList" (click)="goToItem(product)">
-    {{product.name}}
+  <li *ngFor="let product of productList" >
+    <span (click)="goToItem(product)">{{product.name}}</span>
   </li>
 </ul>
 <router-outlet></router-outlet>

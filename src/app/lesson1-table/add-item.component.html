@@ -1,4 +1,20 @@
-<input type="text" [(ngModel)]="newName" placeholder="Name">
-<input type="number" [(ngModel)]="newPrice" placeholder="Price">
-<input type="number" [(ngModel)]="newCategory" placeholder="Category" min="1" max="3">
-<button (click)="addItem()">Add</button>
+<form (ngSubmit)="addItem(addform)" #addform="ngForm">
+    <div class="form-check form-check-inline">
+        <input type="text" class="form-control" [(ngModel)]="newName" placeholder="Name" name="name" #name="ngModel" minlength="4" required>
+        <div *ngIf="name.errors && (name.dirty || name.touched)">
+            <small class="form-text text-muted" [hidden]="!name.errors.required">Обязательное поле</small>
+            <small class="form-text text-muted" [hidden]="!name.errors.minlength">Минимум 4 знака</small>
+        </div>
+    </div>
+    <div class="form-check form-check-inline">
+        <input type="number" class="form-control" [(ngModel)]="newPrice" placeholder="Price" name="price" #price="ngModel" required>
+        <small class="form-text text-muted" [hidden]="price.valid || price.pristine">Обязательное поле</small>
+    </div>
+    <div class="form-check form-check-inline">
+        <input type="number" class="form-control" [(ngModel)]="newCategory" placeholder="Category" min="1" max="3" name="category" #category="ngModel" required>
+        <small class="form-text text-muted" [hidden]="category.valid || category.pristine">Обязательное поле</small>
+    </div>
+    <div class="form-check form-check-inline">
+        <button [class.disabled]="!addform.form.valid" [disabled]="!addform.form.valid" class="btn btn-primary" type="submit">Add</button>
+    </div>
+</form>

@@ -1,5 +1,10 @@
 .main-product-list {
   li {
     cursor: pointer;
+    span {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 }

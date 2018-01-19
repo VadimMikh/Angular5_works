@@ -1,6 +1,6 @@
 <div *ngIf="product">
   <h4>{{product.name}}</h4>
-  <p>{{product.price}}</p>
+  <p>Price: <i>{{product.price}}</i></p>
   <p>Category: <strong>{{product.category}}</strong></p>
 </div>
 <p *ngIf="!product">Shit happens</p>

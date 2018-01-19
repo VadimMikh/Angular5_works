@@ -1,0 +1,13 @@
+:host {
+  padding: 0 15px;
+  display: block;
+  .form-check-inline {
+    vertical-align: top;
+  }
+  .form-check {
+    .form-text {
+      color: red!important;
+      font-style: italic;
+    }
+  }
+}
