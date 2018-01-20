@@ -12,11 +12,22 @@ export class MainService {
         { id: 7, name: 'product 7', price: 700, category: 1 },
         { id: 8, name: 'product 8', price: 800, category: 2 },
         { id: 9, name: 'product 9', price: 900, category: 3 },
-        { id: 10, name: 'product 10', price: 1000, category: 1 }
+        { id: 10, name: 'product 10', price: 1000, category: 3 }
     ];
 
     getProducts() {
         return this.products;
+    }
+
+    getCategoryRange() {
+        const categories = [];
+        this.products.map(item => {
+            categories.push(item.category);
+        });
+        return {
+            min: Math.min.apply(null, categories),
+            max: Math.max.apply(null, categories)
+        };
     }
 
     deleteProduct(id) {

@@ -1,7 +1,15 @@
-<h1>Products application</h1>
-<ul class="main-product-list">
-  <li *ngFor="let product of productList" >
-    <span (click)="goToItem(product)">{{product.name}}</span>
-  </li>
-</ul>
-<router-outlet></router-outlet>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 block-product-list">
+      <h1>Products application</h1>
+      <ul class="main-product-list">
+        <li *ngFor="let product of productList" >
+          <span (click)="goToItem(product)">{{product.name}}</span>
+        </li>
+      </ul>
+    </div>
+    <div class="col-xs-6 item-product-list">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

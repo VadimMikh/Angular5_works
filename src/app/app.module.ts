@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { Lesson1TableComponent } from './lesson1-table/lesson1-table.component';
 import { MyTableComponent } from './lesson1-table/my-table.component';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AddItemComponent } from './lesson1-table/add-item.component';
 import { MainService } from './main.service';
 import { HomeComponent } from './home/home.component';
@@ -29,6 +29,7 @@ import { AdminComponent } from './admin/admin.component';
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       { path: 'products', component: Lesson1TableComponent },
       // { path: 'product/:id', component: ItemInnerComponent },
