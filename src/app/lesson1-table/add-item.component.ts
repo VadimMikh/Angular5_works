@@ -1,6 +1,7 @@
 import {Component, OnInit, Output, AfterViewInit, EventEmitter} from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import {MainService} from '../main.service';
+import { MainService } from '../main.service';
+import { Range } from './product';
 
 @Component({
     selector: 'app-add-item',
@@ -18,7 +19,7 @@ export class AddItemComponent implements OnInit, AfterViewInit {
         category: ''
     };
 
-    categoryRange = this.mainService.getCategoryRange();
+    categoryRange: Range = this.mainService.getCategoryRange();
 
     validationMessages = {
         name: {
@@ -64,7 +65,6 @@ export class AddItemComponent implements OnInit, AfterViewInit {
                     }
                 }
             }
-
         }
     }
 
@@ -85,6 +85,5 @@ export class AddItemComponent implements OnInit, AfterViewInit {
         };
         form.reset();
         this.addItemHandle.emit(newItem);
-
     }
 }
