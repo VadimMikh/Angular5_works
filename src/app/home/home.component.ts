@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MainService } from '../main.service';
 import { Router } from '@angular/router';
+import { ProductList } from '../interfaces';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private mainService: MainService, private router: Router) { }
 
-  productList;
+  productList: ProductList[];
 
   ngOnInit() {
     this.productList = this.mainService.getProducts();

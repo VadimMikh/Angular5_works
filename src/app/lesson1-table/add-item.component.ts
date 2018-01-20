@@ -1,7 +1,7 @@
 import {Component, OnInit, Output, AfterViewInit, EventEmitter} from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MainService } from '../main.service';
-import { Range } from './product';
+import { Range } from '../interfaces';
 
 @Component({
     selector: 'app-add-item',

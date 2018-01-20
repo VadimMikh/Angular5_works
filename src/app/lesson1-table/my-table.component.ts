@@ -1,5 +1,5 @@
-import {Component, Input, Output, EventEmitter, OnInit} from '@angular/core';
-import {MainService} from '../main.service';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { MainService } from '../main.service';
 
 @Component ({
     selector: 'app-my-table',
@@ -25,11 +25,10 @@ export class MyTableComponent implements OnInit {
     }
 
     _filterItems(arr) {
-        const tempArr = arr.filter((el, i) => i < this.rows);
-        this.productsToShow = tempArr;
+        this.productsToShow = arr.filter((el, i) => i < this.rows);
     }
 
-    delete(id: number) {
+    deleteHandle(id: number) {
         this.productsToShow = this.mainService.deleteProduct(id);
         this.deleteTrigger.emit(id);
     }
