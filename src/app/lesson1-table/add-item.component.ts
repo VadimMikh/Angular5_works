@@ -1,7 +1,8 @@
-import {Component, OnInit, Output, AfterViewInit, EventEmitter} from '@angular/core';
+import { Component, OnInit, Output, AfterViewInit, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MainService } from '../main.service';
 import { Range } from '../interfaces';
+import { priceValid } from '../custom-validators';
 
 @Component({
     selector: 'app-add-item',
@@ -27,7 +28,8 @@ export class AddItemComponent implements OnInit, AfterViewInit {
             minlength: 'Минимум 4 сивола'
         },
         price: {
-            required: 'Обязательное поле'
+            required: 'Обязательное поле',
+            priceValid: 'Неверная цена'
         },
         category: {
             required: 'Обязательное поле',
@@ -71,7 +73,7 @@ export class AddItemComponent implements OnInit, AfterViewInit {
     initForm() {
         this.addForm = this.fb.group({
             name: ['', [Validators.required, Validators.minLength(4)]],
-            price: ['', Validators.required],
+            price: ['', [Validators.required, priceValid]],
             category: ['', [Validators.required, Validators.min(this.categoryRange.min), Validators.max(this.categoryRange.max)]]
         });
     }
