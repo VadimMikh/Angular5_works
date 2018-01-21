@@ -19,15 +19,27 @@ export class MainService {
         return this.products;
     }
 
-    getCategoryRange() {
+    private _getCategories() {
         const categories = [];
         this.products.map(item => {
             categories.push(item.category);
         });
+        return categories;
+    }
+
+    getCategoryRange() {
+        const categories = this._getCategories();
         return {
             min: Math.min.apply(null, categories),
             max: Math.max.apply(null, categories)
         };
+    }
+
+    getCategoryLIst() {
+        const categories = this._getCategories();
+        return categories.filter(function(value, index, _this) {
+            return _this.indexOf(value) === index;
+        });
     }
 
     deleteProduct(id) {

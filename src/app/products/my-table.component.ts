@@ -16,14 +16,15 @@ export class MyTableComponent implements OnInit {
     products = [];
     category = 1;
     productsService = [];
+    categoryList = [];
 
     constructor(private mainService: MainService) {}
 
     ngOnInit() {
         this.productsService = this.mainService.getProducts();
         this._filterItems(this.productsService);
+        this.categoryList = this.mainService.getCategoryLIst();
     }
-
     _filterItems(arr) {
         this.productsToShow = arr.filter((el, i) => i < this.rows);
     }
@@ -35,6 +36,8 @@ export class MyTableComponent implements OnInit {
 
     addItem(item) {
         this.products = this.mainService.addItem(item);
+        this.categoryList = this.mainService.getCategoryLIst();
         this._filterItems(this.products);
+        this.category = item.category;
     }
 }
