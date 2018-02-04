@@ -10,6 +10,7 @@ import { priceValid } from '../custom-validators';
     styleUrls: ['./add-item.component.scss']
 })
 export class AddItemComponent implements OnInit, AfterViewInit {
+
     constructor(private fb: FormBuilder, private mainService: MainService) { }
 
     addForm: FormGroup;

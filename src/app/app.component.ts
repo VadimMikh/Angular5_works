@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import '../rx-js.operations';
 
 @Component({
   selector: 'app-root',

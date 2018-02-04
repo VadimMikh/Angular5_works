@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { MainService } from '../main.service';
+import {CommentsService} from '../comments/comments.service';
 
 @Component ({
     selector: 'app-my-table',

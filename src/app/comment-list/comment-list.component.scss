@@ -1,0 +1,22 @@
+:host {
+  display: block;
+  padding: 0 10px;
+  .refresh {
+    margin-bottom: 20px;
+  }
+  li {
+    margin-bottom: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    .inner {
+      margin-bottom: 20px;
+    }
+  }
+  .comment-block-trigger {
+    cursor: pointer;
+    transition: .25s;
+    &:hover {
+      color: #0275d8;
+    }
+  }
+}

@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 import { MatButtonModule, MatTableModule } from '@angular/material';
 
@@ -14,6 +15,8 @@ import { MainService } from './main.service';
 import { HomeComponent } from './home/home.component';
 import { ItemInnerComponent } from './item-inner/item-inner.component';
 import { AdminComponent } from './admin/admin.component';
+import { CommentsService } from './comments/comments.service';
+import { CommentListComponent } from './comment-list/comment-list.component';
 
 
 @NgModule({
@@ -24,16 +27,19 @@ import { AdminComponent } from './admin/admin.component';
     MyTableComponent,
     HomeComponent,
     ItemInnerComponent,
-    AdminComponent
+    AdminComponent,
+    CommentListComponent
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
       { path: 'products', component: ProductsComponent },
       // { path: 'product/:id', component: ItemInnerComponent },
       { path: 'admin', component: AdminComponent },
+      { path: 'comments', component: CommentListComponent },
       { path: 'home',
         component: HomeComponent,
         children: [
@@ -49,7 +55,10 @@ import { AdminComponent } from './admin/admin.component';
     MatButtonModule,
     MatTableModule
   ],
-  providers: [MainService],
+  providers: [
+    MainService,
+    CommentsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
